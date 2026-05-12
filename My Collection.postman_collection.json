@@ -11,24 +11,88 @@
     {
       "name": "RBAC assignment",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Employee\",\r\n    \"permissions\": [\"view_tasks\", \"update_own_task\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/roles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "roles"
+          ]
+        }
       },
       "response": []
     },
     {
       "name": "Setup & Auth",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Admin\",\r\n  \"permissions\": [\r\n    \"create_user\",\r\n    \"delete_user\",\r\n    \"assign_role\",\r\n    \"view_all_tasks\",\r\n    \"update_any_task\",\r\n    \"manage_managers\",\r\n    \"view_reports\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/roles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "roles"
+          ]
+        }
       },
       "response": []
     },
     {
       "name": "Register Admin",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Manager Ratna\",\r\n    \"email\": \"ratna@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"roleName\": \"Manager\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
       },
       "response": []
     },
@@ -93,6 +157,167 @@
       "request": {
         "method": "GET",
         "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Create Role Manager",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Manager\",\r\n  \"permissions\": [\r\n    \"create_task\",\r\n    \"assign_task\",\r\n    \"update_task_status\",\r\n    \"view_team_tasks\",\r\n    \"add_deadline\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/roles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "roles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register Admin User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Admin Ozzie\",\r\n    \"email\": \"ozzie@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"roleName\": \"Admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register Employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Employee Remo\",\r\n    \"email\": \"remo@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"roleName\": \"Employee\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task (JSON)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \r\n  \"title\": \"Develop Employee Dashboard\",\r\n  \"description\": \"Create a dashboard for employees to view and manage assigned tasks\",\r\n  \"assignedTo\": \"6a01a2e40ccda28492b281de\",\r\n  \"priority\": \"Medium\",\r\n  \"dueDate\": \"2026-06-15\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task (Form Data)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "title",
+              "value": "image task",
+              "type": "text",
+              "uuid": "d74730f6-1203-4934-8221-735841a5cdd3"
+            },
+            {
+              "key": "description",
+              "value": "woodpecker",
+              "type": "text",
+              "uuid": "9fab5741-3420-4b10-a4ff-0a71666d8257"
+            },
+            {
+              "key": "attachment",
+              "type": "file",
+              "uuid": "e9519768-5992-4750-9ca5-7bbd83e46ae2",
+              "src": "/C:/Users/ladno/OneDrive/Desktop/accessories/OneDrive/Pictures/Screenshots/Screenshot 2024-09-08 224229.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
       },
       "response": []
     }
